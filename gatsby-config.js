@@ -89,6 +89,8 @@ module.exports = {
                     frontmatter {
                       title
                       date
+                      author
+                      authorMail
                     }
                   }
                 }
