@@ -116,5 +116,12 @@ module.exports = {
         icon: `src/images/neordinary-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-plugin-typescript',
+      options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+    },
   ],
 }

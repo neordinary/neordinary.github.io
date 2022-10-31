@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Utterances from "../components/utterances"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -28,7 +28,7 @@ const BlogPostTemplate = ({
         />
         <hr />
         <footer>
-          <Bio />
+          <Utterances repo="neordinary/neordinary.github.io" theme="github-light" />
         </footer>
       </article>
       <nav className="blog-post-nav">

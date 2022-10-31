@@ -115,3 +115,21 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `)
 }
+
+// Setup Import Alias
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+  const output = getConfig().output || {};
+
+  actions.setWebpackConfig({
+    output,
+    resolve: {
+      alias: {
+        assets: path.resolve(__dirname, 'src/assets'),
+        components: path.resolve(__dirname, 'src/components'),
+        styles: path.resolve(__dirname, 'src/styles'),
+        templates: path.resolve(__dirname, 'src/templates'),
+        typings: path.resolve(__dirname, 'src/typings'),
+      },
+    },
+  });
+};
