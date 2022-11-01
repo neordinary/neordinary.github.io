@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[We present the Neo-Ordinary of working.]]></description><link>https://neordinary.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 01 Nov 2022 07:29:08 GMT</lastBuildDate><item><title><![CDATA[Git에 대한 이해, 그리고 더 잘 사용하는 방법]]></title><description><![CDATA[🧐 Git! 왜 다들 git을 쓸 줄 알아야한다고 하는거죠? Git이 뭔데 다들 git을 외치는걸까요? 버전관리, 협업에 대해서 알고나면, git…]]></description><link>https://neordinary.github.io/how-to-use-git-well/</link><guid isPermaLink="false">https://neordinary.github.io/how-to-use-git-well/</guid><dc:creator><![CDATA[에릭, 데이빗]]></dc:creator><pubDate>Mon, 31 Oct 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;🧐 Git! 왜 다들 git을 쓸 줄 알아야한다고 하는거죠?&lt;/h2&gt;
+&lt;p&gt;Git이 뭔데 다들 git을 외치는걸까요?&lt;/p&gt;
+&lt;p&gt;버전관리, 협업에 대해서 알고나면, git이 대해서 좀 더 친근하게 느껴지실 수 있을거에요 😉&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;버전관리, 파일관리&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;흔히 우리는 학교 레포트 작성 혹은 ppt를 제작하면서 수많은 수정을 겪게 됩니다.&lt;/p&gt;
+&lt;p&gt;가끔은 이전에 쓰던 내용,자료가 현재 파일에 덮어씌워지면서 날아가버리는 상황도 마주치게 되죠 😭&lt;/p&gt;
+&lt;p&gt;그래서 우린 이를 방지하기 위해서 중요한 수정, 데이터가 있는 자료들은 이전 버전을 남겨두면서 새로운 파일들을 계속 저장하곤 합니다. 그럼에도 우리의 실수로 파일이 하나씩 사라지는 엄청난 이슈를 겪기도 하죠,,&lt;/p&gt;
+&lt;p&gt;하지만 Git을 사용하게 된다면 이런 이슈를 미리 방지할 수 있답니다!
+하나의 파일을 수정하고 작업이 마무리 되었다면 commit 이라는 명령어를 통해서 새로운 버전을 생성할 수 있게됩니다. 파일을 생성하듯 동일하게 버전에 이름을 부여할 수 있고, 추가적인 설명도 남길 수 있답니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;그럼 그냥 파일을 날짜별로, 시간별로 관리하는거랑 별 차이가 없는걸요? 😕&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;큰 차이점은 여러 버전의 파일을 직접 폴더 내에서 관리하는 것과
+보이는 것은 하나의 파일이지만 컴퓨터 특정 저장소 내에 여러 버전이 저장되어 있다는 점이죠.&lt;/p&gt;
+&lt;p&gt;여러 버전의 파일을 직접 폴더 내에 관리할 경우에는 어떤 폴더에 어떤 내용들이 있었는지 직접 열어보며 찾아야하고, 제목에 이를 반영하기에는 너무 길어서 가독성이 떨어지게 되죠&lt;/p&gt;
+&lt;p&gt;하지만 git을 활용한다면 git 내에 commit 이라는 명령어를 진행했던 기록을 보며, 각 버전별 내용을 보고 쉽게 다시 불러올 수 있답니다. 여러분이 보시는 파일은 1개에요! 다른 버전의 파일들은 git이 관리해주고 있답니다 😃&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;협업&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;앞서 git을 통해서 버전관리에 대한 이점을 볼 수 있었는데요,&lt;/p&gt;
+&lt;p&gt;개발을 진행하면서 다른 노트북, 데스크탑에서 개발을 해야하는 경우나 다른 사람과 함께 개발을 진행해야하는 경우를 쉽게 볼 수 있을겁니다.&lt;/p&gt;
+&lt;p&gt;함께 개발을 한다. 를 함께 피피티를 만든다고 가정해보겠습니다.&lt;/p&gt;
+&lt;p&gt;기획을 디테일하게 하고, 어떤 부분을 누가 만들지 나누셨을거에요.&lt;/p&gt;
+&lt;p&gt;열심히 만든 결과물을 이제 팀원과 함께 하나의 파일로 합치는 과정을 진행할 때에 팀원에게 나의 파일을 보내주고 합치도록 하던가 혹은 팀원의 파일을 받아서 내가 합치는 절차를 진행하시게 되겠죠?&lt;/p&gt;
+&lt;p&gt;앗! 근데 문제가 발생했어요! 팀원이 만든 자료에 대해서 이해가 되지 않은 부분이 생겨 파일을 합치는데 팀원에게 계속 물어봐야하는 비효율이 발생하게 되었어요😭&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이런 어려움을 git은 어떻게 해결해주고 있을까요?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;앞선 예시에서 저희가 협업을 위해 필요한 조건을 알 수 있었습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;파일 공유&lt;/li&gt;
+&lt;li&gt;분업한 업무를 하나로 합치기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;먼저 파일공유는 git으로 어떻게 할 수 있을까요?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그러기 위해서는 우선 내 컴퓨터에 저장되어있는 버전들, 파일들을 다른 사람과 공유해야하는데요, 이를 위해 사용하는 것이 github입니다. github에 작업 중이던 파일들을 저장할 수 있으며, 물론! 버전들까지도 모두 저장을 할 수 있습니다 😊&lt;/p&gt;
+&lt;p&gt;github은 원격저장소로 저뿐만아니라 다른 사람들도 같이 접근을 할 수 있답니다.&lt;/p&gt;
+&lt;p&gt;그럼 협업을 위해서 github에 저장함으로 협업하기 위한 조건을 갖추게 되었답니다!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;이제 파일 공유가 되었으니 우리는 분업한 업무를 하나로 합치는 과정만 해결하면 된답니다.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;github이라는 원격 저장소를 통해서 같이 작업해야하는 파일들을 가져와서 작업을 하게 되고 작업을 마친 뒤 동일하게 commit이라는 명령어를 통해서 새로운 버전을 만들게 됩니다. 그 후 새롭게 생성된 버전을 github에 있는 버전과 합치게 됩니다.&lt;/p&gt;
+&lt;p&gt;앗! 다른 팀원이 미리 변경된 내역을 github에 반영해둬서 제가 반영하려는 파일과 충돌이 생겼어요!!&lt;/p&gt;
+&lt;p&gt;괜찮아요! 충분히 해결할 수 있답니다.
+git에는 각 버전별로 설명과 변경 내역을 볼 수 있다고 말씀드렸죠?! 다른 팀원을 변경내역을 참고해서 나의 코드를 같이 덮어주시면 된답니다~!&lt;/p&gt;
+&lt;p&gt;잘못 덮었다구요?! 걱정하지마세요! git에는 버전이 저장되어있어 다시 이전 버전으로 돌리고 덮으시면 됩니다!&lt;/p&gt;
+&lt;h3&gt;그래서 우리는 git을 왜 알아야한다구요?!&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;그냥 파일을 관리하는 것보다 편하게 버전, 백업데이터를 관리할 수 있어요!&lt;/li&gt;
+&lt;li&gt;같이 협업하는데 git &amp;#x26; github을 통해서 원격으로 파일을 공유하고, 수정할 수 있어요!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Git은 무엇일까요?&lt;/h2&gt;
+&lt;p&gt;Git은 &lt;strong&gt;분산 버전 관리 시스템&lt;/strong&gt;으로, 프로젝트의 종류나 크기와 상관 없이 효율적으로 기록을 관리할 수 있는 시스템입니다!&lt;/p&gt;
+&lt;p&gt;무료이면서 오픈소스로 관리되기에 개발자들에게 많은 사랑을 받고 있으며, CLI/GUI 환경 모두를 지원합니다!&lt;/p&gt;
+&lt;h2&gt;분산 버전 관리 시스템?&lt;/h2&gt;
+&lt;p&gt;분산 버전 관리 시스템을 이해하기 전, 버전 관리 시스템이 무엇인지 이해해야 합니다!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;버전 관리 시스템&lt;/strong&gt;은 파일의 변화 정보를 시간에 따라 기록했다가, 필요한 경우 특정 시점의 버전을 다시 꺼내올 수 있는 시스템입니다. 이러한 버전 관리 시스템은 개발 분야 뿐만 아니라 컴퓨터에 존재하는 거의 모든 파일들에 대한 변경 사항을 기록할 수 있기 때문에 많은 분야에서 활용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;이러한 버전 관리 시스템의 초기에는 중앙 서버에서 모두 관리하고, 개별 컴퓨터에서 마지막 버전만 복사하는 중앙집중형으로 사용하였지만 중앙 서버에 문제가 발생하면 기록이 손실될 수 있다는 문제점이 존재했습니다.&lt;/p&gt;
+&lt;p&gt;이러한 문제점을 해결하기 위하여 기록을 &lt;strong&gt;중앙 서버뿐만 아니라 파일을 사용하는 모든 컴퓨터에 저장&lt;/strong&gt;해 분산시켜 중앙 서버에 문제가 생겨도 쉽게 복구할 수 있는 &lt;strong&gt;분산 버전 관리 시스템&lt;/strong&gt;이 등장하게 되었고, 그 중 가장 많이 사용되는 것이 오늘 소개할 &lt;strong&gt;&lt;strong&gt;&lt;strong&gt;Git&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;입니다!&lt;/p&gt;
+&lt;h2&gt;Git과 GitHub는 무슨 차이인가요?&lt;/h2&gt;
+&lt;p&gt;앞서 설명드렸던 &lt;strong&gt;분산 버전 관리 시스템&lt;/strong&gt;의 가장 큰 특징은 기록을 분산하여 저장한다는 것이었습니다.&lt;/p&gt;
+&lt;p&gt;그러나 단순히 개발자의 로컬 컴퓨터끼리만 분산해서 사용하게 될 경우 명확한 버전 관리 기준이 존재하지 않게 되어 서로 다른 기록들을 가지게 될 수 있기 때문에 &lt;strong&gt;기준점을 잡아주는 서버가 필요&lt;/strong&gt;한데, GitHub는 이러한 서버의 역할을 해주는 플랫폼 중 가장 유명한 플랫폼이라고 볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;즉, Git은 분산 버전 관리 시스템을 제공하는 &lt;strong&gt;소프트웨어&lt;/strong&gt;이고, ********GitHub는 Git 정보를 저장할 수 있는 클라우드 저장소 역할을 해주는 &lt;strong&gt;플랫폼&lt;/strong&gt;이라고 볼 수 있습니다.&lt;/p&gt;
+&lt;h2&gt;Git을 더 잘 다루려면 어떻게 해야 할까요?&lt;/h2&gt;
+&lt;p&gt;Git에는 다양한 명령어가 있지만 &lt;strong&gt;commit, push, clone, pull 등의 기본 명령어&lt;/strong&gt;들만 사용하고 계신 경우가 많습니다!&lt;/p&gt;
+&lt;p&gt;그렇지만 버전 관리 시스템의 장점을 모두 활용하기 위해서는 다양한 명령어들을 같이 활용해야 합니다!&lt;/p&gt;
+&lt;h3&gt;Log 명령어의 정보를 활용하자!&lt;/h3&gt;
+&lt;p&gt;버전 관리 시스템의 특징은 &lt;strong&gt;변화 정보를 시간에 따라 기록&lt;/strong&gt;하는 것입니다! 기록을 확인할 수 있는 Log 명령어를 잘 활용해야 &lt;strong&gt;빠르게 변경 기록을 추적&lt;/strong&gt;하고, &lt;strong&gt;이전 내역으로 돌아갈 수 있습니다&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Log 명령어에는 아래와 같이 다양한 정보들을 확인할 수 있는데, 하나하나가 중요한 정보들을 가지고 있으니, 어떤 의미인지 파악하는 것이 좋겠죠!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/37598a758641c5c44ebeb1434241d0e7/1cfc2/gitlog.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.455696202531648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVQI12NgQALKwuIMoe6uopb1ZkbaE/XtdXsMbMx6TUz9axyUolrMFE36Z5oLt98MYak96eMf1mBVpBDtnyhTFVioWBPkK58WYi8XLQIyhx1kFhsbmy4DA4OKp5ffOvcI3/9eKYFfvJMCv3vG+38Ny47+5J3g/8k6xO+TqW/8V/cgr69Z7nqfCl20vmfa2f/w1ff8rqVh/UdN08QJZCArAwODMAsLqyoDA4O8roH1Tgsrt/8Wlm5/bWy9/ptbuP7XN7T7r6Vt+V9Z1eS/tqbBf3N9/f8mhkb/TY0N/5saG/zX1DX6r6pp+l9dy9QFAMi1SjXKzd9rAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;git log 명령어 입력 시 나오는 출력의 주요 구성요소 (microsoft/vscode)&quot;
+        title=&quot;git log 명령어 입력 시 나오는 출력의 주요 구성요소 (microsoft/vscode)&quot;
+        src=&quot;/static/37598a758641c5c44ebeb1434241d0e7/f058b/gitlog.png&quot;
+        srcset=&quot;/static/37598a758641c5c44ebeb1434241d0e7/c26ae/gitlog.png 158w,
+/static/37598a758641c5c44ebeb1434241d0e7/6bdcf/gitlog.png 315w,
+/static/37598a758641c5c44ebeb1434241d0e7/f058b/gitlog.png 630w,
+/static/37598a758641c5c44ebeb1434241d0e7/1cfc2/gitlog.png 900w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;git log 명령어 입력 시 나오는 출력의 주요 구성요소 (microsoft/vscode)&lt;/p&gt;
+&lt;p&gt;그러나, 단순히 최근 몇 개의 Commit을 확인해서 이전 기록을 가져오고자 한다면 너무 많은 정보가 불필요할 수도 있겠죠!&lt;/p&gt;
+&lt;p&gt;그런 경우 아래처럼 &lt;code class=&quot;language-text&quot;&gt;--oneline&lt;/code&gt; 옵션을 이용하면, &lt;strong&gt;Commit의 고유 ID와 메시지&lt;/strong&gt;만 나오기 때문에 빠르게 원하는 정보를 찾을 수 있습니다!&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; log &lt;span class=&quot;token parameter variable&quot;&gt;--oneline&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/174921f5d53b0d095ac76e77f35aa1b7/01267/gitlog-simple.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.0126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABPElEQVQY00WQ2VLCQBQF+RgXUN9UoFgEEiIJSWZLyI4J6v//QlszefCh68zUVPU9dybXm+brJjFNS2Su7JXCJIY6VET7kCrNGWSB78XsvITt/owfSFbbEw+zd+6nb9xPx7T3Sdsr2l4ilEGqhrIciGWFvFwRWYsXavwowwukE52ijDgtWK4Dx2YXOfZ+yuxlyaTuJP2PJlUGoRsSVZHKkaIaOEXGEZ4zvKNgsQpYf4ROZiWrzdh0+rzg8WnOpOok3SAROkPqlrr9Ji++UKYlCDVeIFxa7LpWZIW2lU0rmb0s/oXdoOl6ic4LhGoweYfOO/Ky5zM0RHGO/yn5OMQc/BShasI453TOXGs7wP6n5e7xdRQOv5pL1XBOSieUunENha7JLlcnT4R9G89lfXNDy+bG7hAzX/osVkcn/wN4lt8x1oUbYQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;git log —oneline 명령어 입력 시 나오는 출력 (microsoft/vscode)&quot;
+        title=&quot;git log —oneline 명령어 입력 시 나오는 출력 (microsoft/vscode)&quot;
+        src=&quot;/static/174921f5d53b0d095ac76e77f35aa1b7/f058b/gitlog-simple.png&quot;
+        srcset=&quot;/static/174921f5d53b0d095ac76e77f35aa1b7/c26ae/gitlog-simple.png 158w,
+/static/174921f5d53b0d095ac76e77f35aa1b7/6bdcf/gitlog-simple.png 315w,
+/static/174921f5d53b0d095ac76e77f35aa1b7/f058b/gitlog-simple.png 630w,
+/static/174921f5d53b0d095ac76e77f35aa1b7/01267/gitlog-simple.png 713w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;git log —oneline 명령어 입력 시 나오는 출력 (microsoft/vscode)&lt;/p&gt;
+&lt;p&gt;여러 Branch를 거쳐서 최종적으로 만들어진 Commit의 경우, 전체 흐름을 참고해야 할 수 있습니다!&lt;/p&gt;
+&lt;p&gt;이때는 아래처럼 &lt;code class=&quot;language-text&quot;&gt;--oneline&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;--decorate&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;--graph&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;--all&lt;/code&gt; 옵션을 이용하면, &lt;strong&gt;각 Commit들이 어떤 Branch에서 갈라져 나오고, 합쳐졌는지 왼편에서 그림으로 확인&lt;/strong&gt;해볼 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; log &lt;span class=&quot;token parameter variable&quot;&gt;--oneline&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--decorate&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--graph&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--all&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/04956108bfd6ef54ccd711cb9cff7c0d/01dae/gitlog-graph.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.55696202531645%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACo0lEQVQ4y2VS2ZKbOADkW+bwOBvvzhiPsQ0GYUAS4pKFDR7mnsSV3fz/o6rolLRJ9mEfulrw0OpDDs2Z/jjvddvXujy9642o9K4s9IlwfSRU50Giz0JqSaiOaa2jWOgwFpoXrZ4vQn1xfaevblx9OZnr6+lCO7wUOP9zxOlRQbZP6B+/QHWvkL3BG4R8gOxekFc9KFdIqES9HxDFBeb3BMt1Cm+Twg85bt0IThQlYzfUo+qqMU/FeEjLsYnY2BA+dlyOhZ+OKzcYPT8bt0RYbAI2kl05RrvSchDlI0mqMYqL0Qk2BEXDQQVDFDLsQo6ECJCAgmwZ0liAMYmUSdBcIYhyhHFhHflbbv//eRfg02yN2a0PhxUCX/8+4PSkbBQTuRs+cDy9oVaPEHUPJlqUhvMW64Bis2UWJKms2PX0Hlc3C8tOyjhevyh0g+nmAYfuBfv2yQoWVYddVltB48rA9GjEM75HXh6RUomVT5HQBrduCGfuRWCCghUUGW/srSaW4dRG3Vshb5NZrPwMm4DZ89qnWCxjTD97NrJhZ7kiSChF0TAwUSHjCnFaW8GQCHtz9LMzE9f0Zta9nLi4nCxs1Mmn5W84Cy9GyjnavkCjGnBxsBGNO5KUNlKSNbhzI+tg+nn1P9z84f2G4y4jyE7i/azw8NxDHV9x6F+R5QrbuMAm5JjO1riYuNaNcfUL5vvieo6rm3srZh26XgwhS3ycFdpeoapPUGpAqwaIvMXWxFwn2Pj/dmjWXQfMVmDOu7TG/SqxC1uHs8UOCS/w7XuH7lniEKZ48VN8hBleCEcdMaikhCxaNOoRVXOCqDq7sH1a+wGz2+A/wb+8BKstxfPbHm9fW/TdAFn1KMsDhuEdRdMj+jkS2ZWWzQO3L4BKO5Jx/ivyD4dBzq1oz1VVAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;git log —oneline —decorate —graph —all 명령어 입력 시 나오는 출력 (microsoft/vscode)&quot;
+        title=&quot;git log —oneline —decorate —graph —all 명령어 입력 시 나오는 출력 (microsoft/vscode)&quot;
+        src=&quot;/static/04956108bfd6ef54ccd711cb9cff7c0d/f058b/gitlog-graph.png&quot;
+        srcset=&quot;/static/04956108bfd6ef54ccd711cb9cff7c0d/c26ae/gitlog-graph.png 158w,
+/static/04956108bfd6ef54ccd711cb9cff7c0d/6bdcf/gitlog-graph.png 315w,
+/static/04956108bfd6ef54ccd711cb9cff7c0d/f058b/gitlog-graph.png 630w,
+/static/04956108bfd6ef54ccd711cb9cff7c0d/01dae/gitlog-graph.png 721w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;git log —oneline —decorate —graph —all 명령어 입력 시 나오는 출력 (microsoft/vscode)&lt;/p&gt;
+&lt;h3&gt;협업하는 도중 이전으로 되돌리려면 Reset이 아닌 Revert를 사용하자!&lt;/h3&gt;
+&lt;p&gt;Reset 명령어를 사용하면 손쉽게 이전의 Commit 내용으로 돌아갈 수 있습니다. 그러나 &lt;strong&gt;Reset 명령어는 지정한 Commit 이후의 모든 내역이 삭제&lt;/strong&gt;되기 때문에 협업하고 있는 다른 개발자가 동일 Branch를 사용하고 있을 경우 서로 기록이 달라져 에러가 발생하는 원인이 됩니다!&lt;/p&gt;
+&lt;p&gt;하지만 &lt;strong&gt;Revert는 이전 내용으로 복구하는 새로운 Commit을 만들어서 복원&lt;/strong&gt;하기 때문에 이전의 기록이 유지되어 문제가 발생하지 않습니다!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 389px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0d50a5c097803c6d1ca12f5d7b0f21a6/00a4e/gitrevert-original.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.48101265822785%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABN0lEQVQY04WPy07CYBCF+yQmRixCBC2lCAlQikChF2gL5dI/hBRERY2XjXFj9JHUF/wMXRmNupicM8nkO2ekIOzRtZrUTBtzdUuhZpPTDfKzDkelMt1DjalSJlDKRGoFvW4QhHMsZ0S13sV2Q0wroNUZoBsW0nI9YiJcXH9GvHnAaHu4ocBbLDBtn1kguIovCPtjxm5IUdNRtAYFrUFeqVI8aXKs1jkq1MgrNaTLmwnjyMEdTFmdXdM2PabREteZYPcnOH6EE0SJ5lSd1EGRPVkllVbZT3wh8al0MdmleO0RzR28oeB8c0fdsHEGW9gYfyiSgNP2gGyuQjqjIWc00tnSryM9v94TrwUt02cmVlT1Hl17xDCc4wUCrdxMIPIX2F9Q6e39g8enF3Z28z8Oty/I31r91/AT2/zTJE63wMEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;원본 Git Log&quot;
+        title=&quot;원본 Git Log&quot;
+        src=&quot;/static/0d50a5c097803c6d1ca12f5d7b0f21a6/00a4e/gitrevert-original.png&quot;
+        srcset=&quot;/static/0d50a5c097803c6d1ca12f5d7b0f21a6/c26ae/gitrevert-original.png 158w,
+/static/0d50a5c097803c6d1ca12f5d7b0f21a6/6bdcf/gitrevert-original.png 315w,
+/static/0d50a5c097803c6d1ca12f5d7b0f21a6/00a4e/gitrevert-original.png 389w&quot;
+        sizes=&quot;(max-width: 389px) 100vw, 389px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;원본 Git Log&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 371px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6530f61b0abe6f899167569948cc1cad/d4635/gitrevert-revert.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.11392405063291%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQY02WM207CQBRF+zEiqMQLoJKKAm2npbRTehmn0EJJg0WCUeODX3+S2QZMjOLDys5+WEsbeRa5Y4N0g5G1eqeWFVGj26fm1KaWMyDb5mS7EXV1k0zGScg56T1G/aG7Z2h6ZNkBDUyPen2HtGwRQsw4fNdBOvSQ9Rgy3YC0DLCRjaLcYJavMDA5RLqEkEuESQ4vSNG9Y7jqDNC6/ubsXIe2KCOV5lxxHqun2VLFlq9iJ1Q5l8r3hQqiTK2qF5XIQsWPC2WwQF207tVl+0HVGh11VG//sPva84vEfDmBN0lRbT9geQIiK5HMSoy5hJAF2CjCvFijb/honN3iqN5GrdFB/fTmH1pZJViUIcJ4inK1hWWHGI0TuJ7Y7y7KnAj6vbMXjk+u/wQOv7beSuRFgFjkeH3/hDNOEMY58qJCtXnbR0+a3T/yYeR38Av4zNgyMgYRsAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;원본의 4번째 Commit을 Revert 했을 때의 Git Log&quot;
+        title=&quot;원본의 4번째 Commit을 Revert 했을 때의 Git Log&quot;
+        src=&quot;/static/6530f61b0abe6f899167569948cc1cad/d4635/gitrevert-revert.png&quot;
+        srcset=&quot;/static/6530f61b0abe6f899167569948cc1cad/c26ae/gitrevert-revert.png 158w,
+/static/6530f61b0abe6f899167569948cc1cad/6bdcf/gitrevert-revert.png 315w,
+/static/6530f61b0abe6f899167569948cc1cad/d4635/gitrevert-revert.png 371w&quot;
+        sizes=&quot;(max-width: 371px) 100vw, 371px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;원본의 4번째 Commit을 Revert 했을 때의 Git Log&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 316px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3e15381d762c2fc549ad03f7fb8d48e2/67145/gitrevert-reset.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 17.72151898734177%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAUlEQVQY03XMu0rDAABA0XyGg0Nf6RO0aWpDQpM2xCTN07RJbW0MlrYgDuLmJDiJroL/IIJfoOCvXaGrOFzOdoVsEXBRxNjuGM32sDd3qPGKtmTQsUxac5Mjd4iuW+TFjlmWI/UNLCfGDzMU1cKPMjTdwfWmCLubKVfbmCSdMF0WXN8/4s/XKEOPMC9Ibjck60tm6Qo/PMeyz+jKBv2BiWEGKJq9d6Ceoo98hKeXB17fnknSlJEZkKU5ujFBGzq47ow4WBBFS8ZWRKM9oFQ9Rmz2qTVkKmLvj8L7xydf3z+k8zUHh03KokS13qPakCnXJEq17r6KKFFvndDsKPvxf/0CuDGPnbx3954AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;원본의 4번째 Commit을 Reset 헀을 때의 Git Log&quot;
+        title=&quot;원본의 4번째 Commit을 Reset 헀을 때의 Git Log&quot;
+        src=&quot;/static/3e15381d762c2fc549ad03f7fb8d48e2/67145/gitrevert-reset.png&quot;
+        srcset=&quot;/static/3e15381d762c2fc549ad03f7fb8d48e2/c26ae/gitrevert-reset.png 158w,
+/static/3e15381d762c2fc549ad03f7fb8d48e2/6bdcf/gitrevert-reset.png 315w,
+/static/3e15381d762c2fc549ad03f7fb8d48e2/67145/gitrevert-reset.png 316w&quot;
+        sizes=&quot;(max-width: 316px) 100vw, 316px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;원본의 4번째 Commit을 Reset 헀을 때의 Git Log&lt;/p&gt;
+&lt;h2&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pro Git Second Edition (by Scott Chacon, Ben Straub), &lt;a href=&quot;https://git-scm.com/book/ko/v2&quot;&gt;https://git-scm.com/book/ko/v2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[Git] Git 제대로 알고 사용하기 - 2, &lt;a href=&quot;https://programforlife.tistory.com/100&quot;&gt;https://programforlife.tistory.com/100&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;microsoft/vscode, &lt;a href=&quot;https://github.com/microsoft/vscode&quot;&gt;https://github.com/microsoft/vscode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;git revert 사용법: 이미 커밋한 내용을 되돌리는 방법, &lt;a href=&quot;https://www.lainyzine.com/ko/article/git-revert-reverting-commit-in-git-repository/&quot;&gt;https://www.lainyzine.com/ko/article/git-revert-reverting-commit-in-git-repository/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;git을 왜 알아야한다구요? &lt;a href=&quot;https://kimvampa.tistory.com/118&quot;&gt;https://kimvampa.tistory.com/118&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://luv-n-interest.tistory.com/831&quot;&gt;https://luv-n-interest.tistory.com/831&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://velog.io/@hyun0310woo/git&quot;&gt;https://velog.io/@hyun0310woo/git&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[Hello World! This is First Article!]]></description><link>https://neordinary.github.io/hello-world/</link><guid isPermaLink="false">https://neordinary.github.io/hello-world/</guid><dc:creator><![CDATA[에릭]]></dc:creator><pubDate>Fri, 28 Oct 2022 18:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;p&gt;This is First Article!&lt;/p&gt;</content:encoded></item></channel></rss>

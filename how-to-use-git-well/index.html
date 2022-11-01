@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.24.5"/><meta name="description" content="Git에 대한 기초적인 개념 설명, 그리고 기본적인 명령어 이외에 더 잘 사용하는 방법에 대해 소개합니다." data-gatsby-head="true"/><meta property="og:title" content="Git에 대한 이해, 그리고 더 잘 사용하는 방법" data-gatsby-head="true"/><meta property="og:description" content="Git에 대한 기초적인 개념 설명, 그리고 기본적인 명령어 이외에 더 잘 사용하는 방법에 대해 소개합니다." data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="" data-gatsby-head="true"/><meta name="twitter:title" content="Git에 대한 이해, 그리고 더 잘 사용하는 방법" data-gatsby-head="true"/><meta name="twitter:description" content="Git에 대한 기초적인 개념 설명, 그리고 기본적인 명령어 이외에 더 잘 사용하는 방법에 대해 소개합니다." data-gatsby-head="true"/><style data-href="/styles.0cc2db03ec47bdded535.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/static/montserrat-latin-100-8d7d79679b70dbe27172b6460e7a7910.woff2) format("woff2"),url(/static/montserrat-latin-100-ec38980a9e0119a379e2a9b3dbb1901a.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/static/montserrat-latin-100italic-e279051046ba1286706adc886cf1c96b.woff2) format("woff2"),url(/static/montserrat-latin-100italic-3b325a3173c8207435cd1b76e19bf501.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/static/montserrat-latin-200-9d266fbbfa6cab7009bd56003b1eeb67.woff2) format("woff2"),url(/static/montserrat-latin-200-2d8ba08717110d27122e54c34b8a5798.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/static/montserrat-latin-200italic-6e5b3756583bb2263eb062eae992735e.woff2) format("woff2"),url(/static/montserrat-latin-200italic-a0d6f343e4b536c582926255367a57da.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/static/montserrat-latin-300-00b3e893aab5a8fd632d6342eb72551a.woff2) format("woff2"),url(/static/montserrat-latin-300-ea303695ceab35f17e7d062f30e0173b.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/static/montserrat-latin-300italic-56f34ea368f6aedf89583d444bbcb227.woff2) format("woff2"),url(/static/montserrat-latin-300italic-54b0bf2c8c4c12ffafd803be2466a790.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/static/montserrat-latin-400-b71748ae4f80ec8c014def4c5fa8688b.woff2) format("woff2"),url(/static/montserrat-latin-400-0659a9f4e90db5cf51b50d005bff1e41.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/static/montserrat-latin-400italic-6eed6b4cbb809c6efc7aa7ddad6dbe3e.woff2) format("woff2"),url(/static/montserrat-latin-400italic-7583622cfde30ae49086d18447ab28e7.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/static/montserrat-latin-500-091b209546e16313fd4f4fc36090c757.woff2) format("woff2"),url(/static/montserrat-latin-500-edd311588712a96bbf435fad264fff62.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/static/montserrat-latin-500italic-c90ced68b46050061d1a41842d6dfb43.woff2) format("woff2"),url(/static/montserrat-latin-500italic-5146cbfe02b1deea5dffea27a5f2f998.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/static/montserrat-latin-600-0480d2f8a71f38db8633b84d8722e0c2.woff2) format("woff2"),url(/static/montserrat-latin-600-b77863a375260a05dd13f86a1cee598f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/static/montserrat-latin-600italic-cf46ffb11f3a60d7df0567f8851a1d00.woff2) format("woff2"),url(/static/montserrat-latin-600italic-c4fcfeeb057724724097167e57bd7801.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/static/montserrat-latin-700-7dbcc8a5ea2289d83f657c25b4be6193.woff2) format("woff2"),url(/static/montserrat-latin-700-99271a835e1cae8c76ef8bba99a8cc4e.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/static/montserrat-latin-700italic-c41ad6bdb4bd504a843d546d0a47958d.woff2) format("woff2"),url(/static/montserrat-latin-700italic-6779372f04095051c62ed36bc1dcc142.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/static/montserrat-latin-800-db9a3e0ba7eaea32e5f55328ace6cf23.woff2) format("woff2"),url(/static/montserrat-latin-800-4e3c615967a2360f5db87d2f0fd2456f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/static/montserrat-latin-800italic-bf45bfa14805969eda318973947bc42b.woff2) format("woff2"),url(/static/montserrat-latin-800italic-fe82abb0bcede51bf724254878e0c374.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/static/montserrat-latin-900-e66c7edc609e24bacbb705175669d814.woff2) format("woff2"),url(/static/montserrat-latin-900-8211f418baeb8ec880b80ba3c682f957.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/static/montserrat-latin-900italic-4454c775e48152c1a72510ceed3603e2.woff2) format("woff2"),url(/static/montserrat-latin-900italic-efcaa0f6a82ee0640b83a0916e6e8d68.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/static/merriweather-latin-300-fc117160c69a8ea0851b26dd14748ee4.woff2) format("woff2"),url(/static/merriweather-latin-300-58b18067ebbd21fda77b67e73c241d3b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/static/merriweather-latin-300italic-fe29961474f8dbf77c0aa7b9a629e4bc.woff2) format("woff2"),url(/static/merriweather-latin-300italic-23c3f1f88683618a4fb8d265d33d383a.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/static/merriweather-latin-400-d9479e8023bef9cbd9bf8d6eabd6bf36.woff2) format("woff2"),url(/static/merriweather-latin-400-040426f99ff6e00b86506452e0d1f10b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/static/merriweather-latin-400italic-2de7bfeaf08fb03d4315d49947f062f7.woff2) format("woff2"),url(/static/merriweather-latin-400italic-79db67aca65f5285964ab332bd65f451.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/static/merriweather-latin-700-4b08e01d805fa35d7bf777f1b24314ae.woff2) format("woff2"),url(/static/merriweather-latin-700-22fb8afba4ab1f093b6ef9e28a9b6e92.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/static/merriweather-latin-700italic-cd92541b177652fffb6e3b952f1c33f1.woff2) format("woff2"),url(/static/merriweather-latin-700italic-f87f3d87cea0dd0979bfc8ac9ea90243.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/static/merriweather-latin-900-f813fc6a4bee46eda5224ac7ebf1b7be.woff2) format("woff2"),url(/static/merriweather-latin-900-5d4e42cb44410674acd99153d57df032.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/static/merriweather-latin-900italic-b7901d85486871c1779c0e93ddd85656.woff2) format("woff2"),url(/static/merriweather-latin-900italic-9647f9fdab98756989a8a5550eb205c3.woff) format("woff")}
+
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}@font-face{font-family:NanumBarunGothic;font-style:normal;font-weight:400;src:url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot);src:url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix) format("embedded-opentype"),url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff) format("woff"),url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf) format("truetype")}@font-face{font-family:NanumBarunGothic;font-style:normal;font-weight:700;src:url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot);src:url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix) format("embedded-opentype"),url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff) format("woff"),url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf) format("truetype")}@font-face{font-family:NanumBarunGothic;font-style:normal;font-weight:300;src:url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot);src:url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix) format("embedded-opentype"),url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff) format("woff"),url(//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf) format("truetype")}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-4xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:Montserrat,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"NanumBarunGothic","Merriweather","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-medium:500;--fontWeight-semibold:600;--fontWeight-bold:700;--fontWeight-extrabold:800;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#005b99;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12)}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-primary);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{display:flex;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;-o-tab-size:4;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><title data-gatsby-head="true">Git에 대한 이해, 그리고 더 잘 사용하는 방법 | Ne(o)rdinary</title><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=591e157e7d91f5cec2a8d17c0f523837" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=591e157e7d91f5cec2a8d17c0f523837"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=591e157e7d91f5cec2a8d17c0f523837"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=591e157e7d91f5cec2a8d17c0f523837"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=591e157e7d91f5cec2a8d17c0f523837"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=591e157e7d91f5cec2a8d17c0f523837"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=591e157e7d91f5cec2a8d17c0f523837"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=591e157e7d91f5cec2a8d17c0f523837"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=591e157e7d91f5cec2a8d17c0f523837"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">Ne(o)rdinary</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">Git에 대한 이해, 그리고 더 잘 사용하는 방법</h1><p>에릭, 데이빗<!-- --> (<!-- --><a href="mailto:eric@softsquared.com">eric@softsquared.com</a>)- <!-- -->2022-10-31<!-- --></p></header><section itemProp="articleBody"><h2>🧐 Git! 왜 다들 git을 쓸 줄 알아야한다고 하는거죠?</h2>
+<p>Git이 뭔데 다들 git을 외치는걸까요?</p>
+<p>버전관리, 협업에 대해서 알고나면, git이 대해서 좀 더 친근하게 느껴지실 수 있을거에요 😉</p>
+<blockquote>
+<p>버전관리, 파일관리</p>
+</blockquote>
+<p>흔히 우리는 학교 레포트 작성 혹은 ppt를 제작하면서 수많은 수정을 겪게 됩니다.</p>
+<p>가끔은 이전에 쓰던 내용,자료가 현재 파일에 덮어씌워지면서 날아가버리는 상황도 마주치게 되죠 😭</p>
+<p>그래서 우린 이를 방지하기 위해서 중요한 수정, 데이터가 있는 자료들은 이전 버전을 남겨두면서 새로운 파일들을 계속 저장하곤 합니다. 그럼에도 우리의 실수로 파일이 하나씩 사라지는 엄청난 이슈를 겪기도 하죠,,</p>
+<p>하지만 Git을 사용하게 된다면 이런 이슈를 미리 방지할 수 있답니다!
+하나의 파일을 수정하고 작업이 마무리 되었다면 commit 이라는 명령어를 통해서 새로운 버전을 생성할 수 있게됩니다. 파일을 생성하듯 동일하게 버전에 이름을 부여할 수 있고, 추가적인 설명도 남길 수 있답니다.</p>
+<ul>
+<li><strong>그럼 그냥 파일을 날짜별로, 시간별로 관리하는거랑 별 차이가 없는걸요? 😕</strong></li>
+</ul>
+<p>큰 차이점은 여러 버전의 파일을 직접 폴더 내에서 관리하는 것과
+보이는 것은 하나의 파일이지만 컴퓨터 특정 저장소 내에 여러 버전이 저장되어 있다는 점이죠.</p>
+<p>여러 버전의 파일을 직접 폴더 내에 관리할 경우에는 어떤 폴더에 어떤 내용들이 있었는지 직접 열어보며 찾아야하고, 제목에 이를 반영하기에는 너무 길어서 가독성이 떨어지게 되죠</p>
+<p>하지만 git을 활용한다면 git 내에 commit 이라는 명령어를 진행했던 기록을 보며, 각 버전별 내용을 보고 쉽게 다시 불러올 수 있답니다. 여러분이 보시는 파일은 1개에요! 다른 버전의 파일들은 git이 관리해주고 있답니다 😃</p>
+<blockquote>
+<p>협업</p>
+</blockquote>
+<p>앞서 git을 통해서 버전관리에 대한 이점을 볼 수 있었는데요,</p>
+<p>개발을 진행하면서 다른 노트북, 데스크탑에서 개발을 해야하는 경우나 다른 사람과 함께 개발을 진행해야하는 경우를 쉽게 볼 수 있을겁니다.</p>
+<p>함께 개발을 한다. 를 함께 피피티를 만든다고 가정해보겠습니다.</p>
+<p>기획을 디테일하게 하고, 어떤 부분을 누가 만들지 나누셨을거에요.</p>
+<p>열심히 만든 결과물을 이제 팀원과 함께 하나의 파일로 합치는 과정을 진행할 때에 팀원에게 나의 파일을 보내주고 합치도록 하던가 혹은 팀원의 파일을 받아서 내가 합치는 절차를 진행하시게 되겠죠?</p>
+<p>앗! 근데 문제가 발생했어요! 팀원이 만든 자료에 대해서 이해가 되지 않은 부분이 생겨 파일을 합치는데 팀원에게 계속 물어봐야하는 비효율이 발생하게 되었어요😭</p>
+<ul>
+<li>이런 어려움을 git은 어떻게 해결해주고 있을까요?</li>
+</ul>
+<p>앞선 예시에서 저희가 협업을 위해 필요한 조건을 알 수 있었습니다.</p>
+<ol>
+<li>파일 공유</li>
+<li>분업한 업무를 하나로 합치기</li>
+</ol>
+<ul>
+<li><strong>먼저 파일공유는 git으로 어떻게 할 수 있을까요?</strong></li>
+</ul>
+<p>그러기 위해서는 우선 내 컴퓨터에 저장되어있는 버전들, 파일들을 다른 사람과 공유해야하는데요, 이를 위해 사용하는 것이 github입니다. github에 작업 중이던 파일들을 저장할 수 있으며, 물론! 버전들까지도 모두 저장을 할 수 있습니다 😊</p>
+<p>github은 원격저장소로 저뿐만아니라 다른 사람들도 같이 접근을 할 수 있답니다.</p>
+<p>그럼 협업을 위해서 github에 저장함으로 협업하기 위한 조건을 갖추게 되었답니다!</p>
+<ul>
+<li><strong>이제 파일 공유가 되었으니 우리는 분업한 업무를 하나로 합치는 과정만 해결하면 된답니다.</strong></li>
+</ul>
+<p>github이라는 원격 저장소를 통해서 같이 작업해야하는 파일들을 가져와서 작업을 하게 되고 작업을 마친 뒤 동일하게 commit이라는 명령어를 통해서 새로운 버전을 만들게 됩니다. 그 후 새롭게 생성된 버전을 github에 있는 버전과 합치게 됩니다.</p>
+<p>앗! 다른 팀원이 미리 변경된 내역을 github에 반영해둬서 제가 반영하려는 파일과 충돌이 생겼어요!!</p>
+<p>괜찮아요! 충분히 해결할 수 있답니다.
+git에는 각 버전별로 설명과 변경 내역을 볼 수 있다고 말씀드렸죠?! 다른 팀원을 변경내역을 참고해서 나의 코드를 같이 덮어주시면 된답니다~!</p>
+<p>잘못 덮었다구요?! 걱정하지마세요! git에는 버전이 저장되어있어 다시 이전 버전으로 돌리고 덮으시면 됩니다!</p>
+<h3>그래서 우리는 git을 왜 알아야한다구요?!</h3>
+<ul>
+<li>그냥 파일을 관리하는 것보다 편하게 버전, 백업데이터를 관리할 수 있어요!</li>
+<li>같이 협업하는데 git &#x26; github을 통해서 원격으로 파일을 공유하고, 수정할 수 있어요!</li>
+</ul>
+<h2>Git은 무엇일까요?</h2>
+<p>Git은 <strong>분산 버전 관리 시스템</strong>으로, 프로젝트의 종류나 크기와 상관 없이 효율적으로 기록을 관리할 수 있는 시스템입니다!</p>
+<p>무료이면서 오픈소스로 관리되기에 개발자들에게 많은 사랑을 받고 있으며, CLI/GUI 환경 모두를 지원합니다!</p>
+<h2>분산 버전 관리 시스템?</h2>
+<p>분산 버전 관리 시스템을 이해하기 전, 버전 관리 시스템이 무엇인지 이해해야 합니다!</p>
+<p><strong>버전 관리 시스템</strong>은 파일의 변화 정보를 시간에 따라 기록했다가, 필요한 경우 특정 시점의 버전을 다시 꺼내올 수 있는 시스템입니다. 이러한 버전 관리 시스템은 개발 분야 뿐만 아니라 컴퓨터에 존재하는 거의 모든 파일들에 대한 변경 사항을 기록할 수 있기 때문에 많은 분야에서 활용할 수 있습니다.</p>
+<p>이러한 버전 관리 시스템의 초기에는 중앙 서버에서 모두 관리하고, 개별 컴퓨터에서 마지막 버전만 복사하는 중앙집중형으로 사용하였지만 중앙 서버에 문제가 발생하면 기록이 손실될 수 있다는 문제점이 존재했습니다.</p>
+<p>이러한 문제점을 해결하기 위하여 기록을 <strong>중앙 서버뿐만 아니라 파일을 사용하는 모든 컴퓨터에 저장</strong>해 분산시켜 중앙 서버에 문제가 생겨도 쉽게 복구할 수 있는 <strong>분산 버전 관리 시스템</strong>이 등장하게 되었고, 그 중 가장 많이 사용되는 것이 오늘 소개할 <strong><strong><strong>Git</strong></strong></strong>입니다!</p>
+<h2>Git과 GitHub는 무슨 차이인가요?</h2>
+<p>앞서 설명드렸던 <strong>분산 버전 관리 시스템</strong>의 가장 큰 특징은 기록을 분산하여 저장한다는 것이었습니다.</p>
+<p>그러나 단순히 개발자의 로컬 컴퓨터끼리만 분산해서 사용하게 될 경우 명확한 버전 관리 기준이 존재하지 않게 되어 서로 다른 기록들을 가지게 될 수 있기 때문에 <strong>기준점을 잡아주는 서버가 필요</strong>한데, GitHub는 이러한 서버의 역할을 해주는 플랫폼 중 가장 유명한 플랫폼이라고 볼 수 있습니다.</p>
+<p>즉, Git은 분산 버전 관리 시스템을 제공하는 <strong>소프트웨어</strong>이고, ********GitHub는 Git 정보를 저장할 수 있는 클라우드 저장소 역할을 해주는 <strong>플랫폼</strong>이라고 볼 수 있습니다.</p>
+<h2>Git을 더 잘 다루려면 어떻게 해야 할까요?</h2>
+<p>Git에는 다양한 명령어가 있지만 <strong>commit, push, clone, pull 등의 기본 명령어</strong>들만 사용하고 계신 경우가 많습니다!</p>
+<p>그렇지만 버전 관리 시스템의 장점을 모두 활용하기 위해서는 다양한 명령어들을 같이 활용해야 합니다!</p>
+<h3>Log 명령어의 정보를 활용하자!</h3>
+<p>버전 관리 시스템의 특징은 <strong>변화 정보를 시간에 따라 기록</strong>하는 것입니다! 기록을 확인할 수 있는 Log 명령어를 잘 활용해야 <strong>빠르게 변경 기록을 추적</strong>하고, <strong>이전 내역으로 돌아갈 수 있습니다</strong>.</p>
+<p>Log 명령어에는 아래와 같이 다양한 정보들을 확인할 수 있는데, 하나하나가 중요한 정보들을 가지고 있으니, 어떤 의미인지 파악하는 것이 좋겠죠!</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/37598a758641c5c44ebeb1434241d0e7/1cfc2/gitlog.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 16.455696202531648%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVQI12NgQALKwuIMoe6uopb1ZkbaE/XtdXsMbMx6TUz9axyUolrMFE36Z5oLt98MYak96eMf1mBVpBDtnyhTFVioWBPkK58WYi8XLQIyhx1kFhsbmy4DA4OKp5ffOvcI3/9eKYFfvJMCv3vG+38Ny47+5J3g/8k6xO+TqW/8V/cgr69Z7nqfCl20vmfa2f/w1ff8rqVh/UdN08QJZCArAwODMAsLqyoDA4O8roH1Tgsrt/8Wlm5/bWy9/ptbuP7XN7T7r6Vt+V9Z1eS/tqbBf3N9/f8mhkb/TY0N/5saG/zX1DX6r6pp+l9dy9QFAMi1SjXKzd9rAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="git log 명령어 입력 시 나오는 출력의 주요 구성요소 (microsoft/vscode)"
+        title="git log 명령어 입력 시 나오는 출력의 주요 구성요소 (microsoft/vscode)"
+        src="/static/37598a758641c5c44ebeb1434241d0e7/f058b/gitlog.png"
+        srcset="/static/37598a758641c5c44ebeb1434241d0e7/c26ae/gitlog.png 158w,
+/static/37598a758641c5c44ebeb1434241d0e7/6bdcf/gitlog.png 315w,
+/static/37598a758641c5c44ebeb1434241d0e7/f058b/gitlog.png 630w,
+/static/37598a758641c5c44ebeb1434241d0e7/1cfc2/gitlog.png 900w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>git log 명령어 입력 시 나오는 출력의 주요 구성요소 (microsoft/vscode)</p>
+<p>그러나, 단순히 최근 몇 개의 Commit을 확인해서 이전 기록을 가져오고자 한다면 너무 많은 정보가 불필요할 수도 있겠죠!</p>
+<p>그런 경우 아래처럼 <code class="language-text">--oneline</code> 옵션을 이용하면, <strong>Commit의 고유 ID와 메시지</strong>만 나오기 때문에 빠르게 원하는 정보를 찾을 수 있습니다!</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> log <span class="token parameter variable">--oneline</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/174921f5d53b0d095ac76e77f35aa1b7/01267/gitlog-simple.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.0126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABPElEQVQY00WQ2VLCQBQF+RgXUN9UoFgEEiIJSWZLyI4J6v//QlszefCh68zUVPU9dybXm+brJjFNS2Su7JXCJIY6VET7kCrNGWSB78XsvITt/owfSFbbEw+zd+6nb9xPx7T3Sdsr2l4ilEGqhrIciGWFvFwRWYsXavwowwukE52ijDgtWK4Dx2YXOfZ+yuxlyaTuJP2PJlUGoRsSVZHKkaIaOEXGEZ4zvKNgsQpYf4ROZiWrzdh0+rzg8WnOpOok3SAROkPqlrr9Ji++UKYlCDVeIFxa7LpWZIW2lU0rmb0s/oXdoOl6ic4LhGoweYfOO/Ky5zM0RHGO/yn5OMQc/BShasI453TOXGs7wP6n5e7xdRQOv5pL1XBOSieUunENha7JLlcnT4R9G89lfXNDy+bG7hAzX/osVkcn/wN4lt8x1oUbYQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="git log —oneline 명령어 입력 시 나오는 출력 (microsoft/vscode)"
+        title="git log —oneline 명령어 입력 시 나오는 출력 (microsoft/vscode)"
+        src="/static/174921f5d53b0d095ac76e77f35aa1b7/f058b/gitlog-simple.png"
+        srcset="/static/174921f5d53b0d095ac76e77f35aa1b7/c26ae/gitlog-simple.png 158w,
+/static/174921f5d53b0d095ac76e77f35aa1b7/6bdcf/gitlog-simple.png 315w,
+/static/174921f5d53b0d095ac76e77f35aa1b7/f058b/gitlog-simple.png 630w,
+/static/174921f5d53b0d095ac76e77f35aa1b7/01267/gitlog-simple.png 713w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>git log —oneline 명령어 입력 시 나오는 출력 (microsoft/vscode)</p>
+<p>여러 Branch를 거쳐서 최종적으로 만들어진 Commit의 경우, 전체 흐름을 참고해야 할 수 있습니다!</p>
+<p>이때는 아래처럼 <code class="language-text">--oneline</code> <code class="language-text">--decorate</code> <code class="language-text">--graph</code> <code class="language-text">--all</code> 옵션을 이용하면, <strong>각 Commit들이 어떤 Branch에서 갈라져 나오고, 합쳐졌는지 왼편에서 그림으로 확인</strong>해볼 수 있습니다.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--decorate</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">--all</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/04956108bfd6ef54ccd711cb9cff7c0d/01dae/gitlog-graph.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.55696202531645%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACo0lEQVQ4y2VS2ZKbOADkW+bwOBvvzhiPsQ0GYUAS4pKFDR7mnsSV3fz/o6rolLRJ9mEfulrw0OpDDs2Z/jjvddvXujy9642o9K4s9IlwfSRU50Giz0JqSaiOaa2jWOgwFpoXrZ4vQn1xfaevblx9OZnr6+lCO7wUOP9zxOlRQbZP6B+/QHWvkL3BG4R8gOxekFc9KFdIqES9HxDFBeb3BMt1Cm+Twg85bt0IThQlYzfUo+qqMU/FeEjLsYnY2BA+dlyOhZ+OKzcYPT8bt0RYbAI2kl05RrvSchDlI0mqMYqL0Qk2BEXDQQVDFDLsQo6ECJCAgmwZ0liAMYmUSdBcIYhyhHFhHflbbv//eRfg02yN2a0PhxUCX/8+4PSkbBQTuRs+cDy9oVaPEHUPJlqUhvMW64Bis2UWJKms2PX0Hlc3C8tOyjhevyh0g+nmAYfuBfv2yQoWVYddVltB48rA9GjEM75HXh6RUomVT5HQBrduCGfuRWCCghUUGW/srSaW4dRG3Vshb5NZrPwMm4DZ89qnWCxjTD97NrJhZ7kiSChF0TAwUSHjCnFaW8GQCHtz9LMzE9f0Zta9nLi4nCxs1Mmn5W84Cy9GyjnavkCjGnBxsBGNO5KUNlKSNbhzI+tg+nn1P9z84f2G4y4jyE7i/azw8NxDHV9x6F+R5QrbuMAm5JjO1riYuNaNcfUL5vvieo6rm3srZh26XgwhS3ycFdpeoapPUGpAqwaIvMXWxFwn2Pj/dmjWXQfMVmDOu7TG/SqxC1uHs8UOCS/w7XuH7lniEKZ48VN8hBleCEcdMaikhCxaNOoRVXOCqDq7sH1a+wGz2+A/wb+8BKstxfPbHm9fW/TdAFn1KMsDhuEdRdMj+jkS2ZWWzQO3L4BKO5Jx/ivyD4dBzq1oz1VVAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="git log —oneline —decorate —graph —all 명령어 입력 시 나오는 출력 (microsoft/vscode)"
+        title="git log —oneline —decorate —graph —all 명령어 입력 시 나오는 출력 (microsoft/vscode)"
+        src="/static/04956108bfd6ef54ccd711cb9cff7c0d/f058b/gitlog-graph.png"
+        srcset="/static/04956108bfd6ef54ccd711cb9cff7c0d/c26ae/gitlog-graph.png 158w,
+/static/04956108bfd6ef54ccd711cb9cff7c0d/6bdcf/gitlog-graph.png 315w,
+/static/04956108bfd6ef54ccd711cb9cff7c0d/f058b/gitlog-graph.png 630w,
+/static/04956108bfd6ef54ccd711cb9cff7c0d/01dae/gitlog-graph.png 721w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>git log —oneline —decorate —graph —all 명령어 입력 시 나오는 출력 (microsoft/vscode)</p>
+<h3>협업하는 도중 이전으로 되돌리려면 Reset이 아닌 Revert를 사용하자!</h3>
+<p>Reset 명령어를 사용하면 손쉽게 이전의 Commit 내용으로 돌아갈 수 있습니다. 그러나 <strong>Reset 명령어는 지정한 Commit 이후의 모든 내역이 삭제</strong>되기 때문에 협업하고 있는 다른 개발자가 동일 Branch를 사용하고 있을 경우 서로 기록이 달라져 에러가 발생하는 원인이 됩니다!</p>
+<p>하지만 <strong>Revert는 이전 내용으로 복구하는 새로운 Commit을 만들어서 복원</strong>하기 때문에 이전의 기록이 유지되어 문제가 발생하지 않습니다!</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 389px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0d50a5c097803c6d1ca12f5d7b0f21a6/00a4e/gitrevert-original.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 28.48101265822785%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABN0lEQVQY04WPy07CYBCF+yQmRixCBC2lCAlQikChF2gL5dI/hBRERY2XjXFj9JHUF/wMXRmNupicM8nkO2ekIOzRtZrUTBtzdUuhZpPTDfKzDkelMt1DjalSJlDKRGoFvW4QhHMsZ0S13sV2Q0wroNUZoBsW0nI9YiJcXH9GvHnAaHu4ocBbLDBtn1kguIovCPtjxm5IUdNRtAYFrUFeqVI8aXKs1jkq1MgrNaTLmwnjyMEdTFmdXdM2PabREteZYPcnOH6EE0SJ5lSd1EGRPVkllVbZT3wh8al0MdmleO0RzR28oeB8c0fdsHEGW9gYfyiSgNP2gGyuQjqjIWc00tnSryM9v94TrwUt02cmVlT1Hl17xDCc4wUCrdxMIPIX2F9Q6e39g8enF3Z28z8Oty/I31r91/AT2/zTJE63wMEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="원본 Git Log"
+        title="원본 Git Log"
+        src="/static/0d50a5c097803c6d1ca12f5d7b0f21a6/00a4e/gitrevert-original.png"
+        srcset="/static/0d50a5c097803c6d1ca12f5d7b0f21a6/c26ae/gitrevert-original.png 158w,
+/static/0d50a5c097803c6d1ca12f5d7b0f21a6/6bdcf/gitrevert-original.png 315w,
+/static/0d50a5c097803c6d1ca12f5d7b0f21a6/00a4e/gitrevert-original.png 389w"
+        sizes="(max-width: 389px) 100vw, 389px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>원본 Git Log</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 371px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6530f61b0abe6f899167569948cc1cad/d4635/gitrevert-revert.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 29.11392405063291%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQY02WM207CQBRF+zEiqMQLoJKKAm2npbRTehmn0EJJg0WCUeODX3+S2QZMjOLDys5+WEsbeRa5Y4N0g5G1eqeWFVGj26fm1KaWMyDb5mS7EXV1k0zGScg56T1G/aG7Z2h6ZNkBDUyPen2HtGwRQsw4fNdBOvSQ9Rgy3YC0DLCRjaLcYJavMDA5RLqEkEuESQ4vSNG9Y7jqDNC6/ubsXIe2KCOV5lxxHqun2VLFlq9iJ1Q5l8r3hQqiTK2qF5XIQsWPC2WwQF207tVl+0HVGh11VG//sPva84vEfDmBN0lRbT9geQIiK5HMSoy5hJAF2CjCvFijb/honN3iqN5GrdFB/fTmH1pZJViUIcJ4inK1hWWHGI0TuJ7Y7y7KnAj6vbMXjk+u/wQOv7beSuRFgFjkeH3/hDNOEMY58qJCtXnbR0+a3T/yYeR38Av4zNgyMgYRsAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="원본의 4번째 Commit을 Revert 했을 때의 Git Log"
+        title="원본의 4번째 Commit을 Revert 했을 때의 Git Log"
+        src="/static/6530f61b0abe6f899167569948cc1cad/d4635/gitrevert-revert.png"
+        srcset="/static/6530f61b0abe6f899167569948cc1cad/c26ae/gitrevert-revert.png 158w,
+/static/6530f61b0abe6f899167569948cc1cad/6bdcf/gitrevert-revert.png 315w,
+/static/6530f61b0abe6f899167569948cc1cad/d4635/gitrevert-revert.png 371w"
+        sizes="(max-width: 371px) 100vw, 371px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>원본의 4번째 Commit을 Revert 했을 때의 Git Log</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 316px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3e15381d762c2fc549ad03f7fb8d48e2/67145/gitrevert-reset.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 17.72151898734177%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAUlEQVQY03XMu0rDAABA0XyGg0Nf6RO0aWpDQpM2xCTN07RJbW0MlrYgDuLmJDiJroL/IIJfoOCvXaGrOFzOdoVsEXBRxNjuGM32sDd3qPGKtmTQsUxac5Mjd4iuW+TFjlmWI/UNLCfGDzMU1cKPMjTdwfWmCLubKVfbmCSdMF0WXN8/4s/XKEOPMC9Ibjck60tm6Qo/PMeyz+jKBv2BiWEGKJq9d6Ceoo98hKeXB17fnknSlJEZkKU5ujFBGzq47ow4WBBFS8ZWRKM9oFQ9Rmz2qTVkKmLvj8L7xydf3z+k8zUHh03KokS13qPakCnXJEq17r6KKFFvndDsKPvxf/0CuDGPnbx3954AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="원본의 4번째 Commit을 Reset 헀을 때의 Git Log"
+        title="원본의 4번째 Commit을 Reset 헀을 때의 Git Log"
+        src="/static/3e15381d762c2fc549ad03f7fb8d48e2/67145/gitrevert-reset.png"
+        srcset="/static/3e15381d762c2fc549ad03f7fb8d48e2/c26ae/gitrevert-reset.png 158w,
+/static/3e15381d762c2fc549ad03f7fb8d48e2/6bdcf/gitrevert-reset.png 315w,
+/static/3e15381d762c2fc549ad03f7fb8d48e2/67145/gitrevert-reset.png 316w"
+        sizes="(max-width: 316px) 100vw, 316px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>원본의 4번째 Commit을 Reset 헀을 때의 Git Log</p>
+<h2>참고자료</h2>
+<ul>
+<li>Pro Git Second Edition (by Scott Chacon, Ben Straub), <a href="https://git-scm.com/book/ko/v2">https://git-scm.com/book/ko/v2</a></li>
+<li>[Git] Git 제대로 알고 사용하기 - 2, <a href="https://programforlife.tistory.com/100">https://programforlife.tistory.com/100</a></li>
+<li>microsoft/vscode, <a href="https://github.com/microsoft/vscode">https://github.com/microsoft/vscode</a></li>
+<li>git revert 사용법: 이미 커밋한 내용을 되돌리는 방법, <a href="https://www.lainyzine.com/ko/article/git-revert-reverting-commit-in-git-repository/">https://www.lainyzine.com/ko/article/git-revert-reverting-commit-in-git-repository/</a></li>
+<li>git을 왜 알아야한다구요? <a href="https://kimvampa.tistory.com/118">https://kimvampa.tistory.com/118</a></li>
+<li><a href="https://luv-n-interest.tistory.com/831">https://luv-n-interest.tistory.com/831</a></li>
+<li><a href="https://velog.io/@hyun0310woo/git">https://velog.io/@hyun0310woo/git</a></li>
+</ul></section><hr/><footer><div></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/hello-world/">← <!-- -->Hello World<!-- --></a></li><li></li></ul></nav></main><footer>© <!-- -->2022<!-- --> NE(O)RDINARY Built with<!-- --> <!-- --><a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/how-to-use-git-well/";window.___webpackCompilationHash="5acfb58ee2bf37b3ab7c";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-66491e537c6fb755feb3.js"],"app":["/app-674b7bc77b47d5eb8ab0.js"],"component---src-pages-404-js":["/component---src-pages-404-js-c31b0603938d55cbfea9.js"],"component---src-pages-index-js":["/component---src-pages-index-js-691c030e577c73ced12c.js"],"component---src-pages-using-typescript-tsx":["/component---src-pages-using-typescript-tsx-f709ff6cabcf1453b305.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-9324d583a93e856670ce.js"]};/*]]>*/</script><script src="/polyfill-66491e537c6fb755feb3.js" nomodule=""></script><script src="/app-674b7bc77b47d5eb8ab0.js" async=""></script><script src="/framework-4ed8f2d6b94973839be0.js" async=""></script><script src="/webpack-runtime-dbb6f2673150c345f3d0.js" async=""></script></body></html>
